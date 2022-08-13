@@ -29,3 +29,7 @@ content-type: application/json
 ### Get All Movies
 GET http://localhost:3000/movies/
 content-type: application/json
+
+### Get Movie by ID
+GET http://localhost:3000/movies/1
+content-type: application/json

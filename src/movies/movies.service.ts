@@ -91,11 +91,11 @@ const movieList: Movie[] = [
 
 @Injectable()
 export class MoviesService {
-  getAllMovies() {
+  getAllMovies(): Movie[] {
     return movieList;
   }
 
-  getMovieById(id: number) {
+  getMovieById(id: number): Movie {
     return movieList.filter((movie: Movie) => movie.id === id)[0];
   }
 }

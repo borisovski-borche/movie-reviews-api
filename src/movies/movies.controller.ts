@@ -10,8 +10,8 @@ export class MoviesController {
     return this.moviesService.getAllMovies();
   }
 
-  @Get(':id')
-  getMovieById(@Param() id: string) {
+  @Get('/:id')
+  getMovieById(@Param('id') id: string) {
     return this.moviesService.getMovieById(parseInt(id));
   }
 }
