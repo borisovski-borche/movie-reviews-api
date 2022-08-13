@@ -94,4 +94,8 @@ export class MoviesService {
   getAllMovies() {
     return movieList;
   }
+
+  getMovieById(id: number) {
+    return movieList.filter((movie: Movie) => movie.id === id)[0];
+  }
 }
