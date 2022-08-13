@@ -7,7 +7,6 @@ export class MoviesController {
 
   @Get('/')
   getAllMovies() {
-    console.log('TEST');
     return this.moviesService.getAllMovies();
   }
 
