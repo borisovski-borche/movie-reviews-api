@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MoviesModule } from './movies/movies.module';
 import { AuthModule } from './auth/auth.module';
+import { OrdersModule } from './orders/orders.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 const cookieSession = require('cookie-session');
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -13,6 +14,7 @@ import { Movie } from './movies/movie.entity';
   imports: [
     MoviesModule,
     AuthModule,
+    OrdersModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: `env.${process.env.NODE_ENV}`,
