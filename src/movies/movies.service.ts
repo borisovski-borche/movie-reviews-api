@@ -36,7 +36,7 @@ const movieList: Movie[] = [
     title: 'Lord of the Rings: Two Towers',
     year: 2001,
     genres: 'adventure,fantasy',
-    rating: 7.5,
+    rating: 8,
     text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
     maiores impedit optio voluptates placeat! Reiciendis aperiam illo,
     deserunt, fuga expedita quia voluptatibus deleniti rerum impedit amet
@@ -78,7 +78,7 @@ const movieList: Movie[] = [
     title: 'Saving Private Ryan',
     year: 1999,
     genres: 'war,action',
-    rating: 9.5,
+    rating: 10,
     text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
     maiores impedit optio voluptates placeat! Reiciendis aperiam illo,
     deserunt, fuga expedita quia voluptatibus deleniti rerum impedit amet
