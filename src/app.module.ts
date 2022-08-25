@@ -24,10 +24,10 @@ import { Movie } from './movies/movie.entity';
       useFactory: (config: ConfigService) => {
         return {
           type: 'sqlite',
-          database: './dist/test.sqlite',
+          database: 'test.sqlite',
           entities: [User, Movie],
           // Initially set to true when starting the project. Need it to create the tables.
-          synchronize: false,
+          synchronize: true,
         };
       },
     }),
