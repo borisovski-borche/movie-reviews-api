@@ -27,7 +27,7 @@ import { Movie } from './movies/movie.entity';
           database: './dist/test.sqlite',
           entities: [User, Movie],
           // Initially set to true when starting the project. Need it to create the tables.
-          synchronize: true,
+          synchronize: false,
         };
       },
     }),
