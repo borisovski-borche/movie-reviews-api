@@ -60,3 +60,8 @@ content-type: application/json
 ### Delete Movie
 DELETE http://localhost:3000/movies/1
 content-type: application/json
+
+
+### Get All Orders
+GET http://localhost:3000/orders/
+content-type: application/json

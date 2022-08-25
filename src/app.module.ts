@@ -9,6 +9,7 @@ const cookieSession = require('cookie-session');
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './auth/user.entity';
 import { Movie } from './movies/movie.entity';
+import { Order } from './orders/order.entity';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { Movie } from './movies/movie.entity';
         return {
           type: 'sqlite',
           database: 'test.sqlite',
-          entities: [User, Movie],
+          entities: [User, Movie, Order],
           // Initially set to true when starting the project. Need it to create the tables.
           synchronize: true,
         };

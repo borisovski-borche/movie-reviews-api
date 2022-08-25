@@ -31,7 +31,6 @@ export class MoviesService {
   async updateMovie(movieId: number, attrs: Partial<Movie>) {
     const movie = await this.getMovieById(movieId);
     Object.assign(movie, attrs);
-    console.log(movie);
     return this.repo.save(movie);
   }
 

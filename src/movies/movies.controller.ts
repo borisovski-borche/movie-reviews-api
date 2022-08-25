@@ -27,7 +27,6 @@ export class MoviesController {
 
   @Post('/')
   async createNewMovie(@Body() body: CreateMovieDto) {
-    console.log(body);
     return await this.moviesService.createNewMovie(body);
   }
 
