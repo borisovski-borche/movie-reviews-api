@@ -1,15 +1,11 @@
-import { MiddlewareConsumer, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MoviesModule } from './movies/movies.module';
 import { AuthModule } from './auth/auth.module';
 import { OrdersModule } from './orders/orders.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-const cookieSession = require('cookie-session');
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './auth/user.entity';
-import { Movie } from './movies/movie.entity';
-import { Order } from './orders/order.entity';
 
 @Module({
   imports: [
@@ -18,17 +14,23 @@ import { Order } from './orders/order.entity';
     OrdersModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: `env.${process.env.NODE_ENV}`,
     }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => {
+      useFactory: (configService: ConfigService) => {
         return {
-          type: 'sqlite',
-          database: 'test.sqlite',
-          entities: [User, Movie, Order],
-          // Initially set to true when starting the project. Need it to create the tables.
+          // Type must be an explicit and hardcoded string
+          type: 'postgres',
+          host: configService.get('DB_HOST'),
+          port: configService.get('DB_PORT'),
+          username: configService.get('DB_USERNAME'),
+          password: configService.get('DB_PASSWORD'),
+          database: configService.get('DB_NAME'),
           synchronize: true,
+          autoLoadEntities: true,
+          extra: {
+            ssl: true,
+          },
         };
       },
     }),
@@ -36,15 +38,4 @@ import { Order } from './orders/order.entity';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-  constructor(private configService: ConfigService) {}
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(
-        cookieSession({
-          keys: [this.configService.get('COOKIE_KEY')],
-        }),
-      )
-      .forRoutes('*');
-  }
-}
+export class AppModule {}
