@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/login
 content-type: application/json
 
 {
-    "email": "ivan@gmail.com",
-    "password": "Qwerty1$"
+    "email": "test.testerson@gmail.com",
+    "password": "test1234"
 }
 
 ### Register
@@ -12,8 +12,8 @@ POST http://localhost:3000/auth/register
 content-type: application/json
 
 {
-    "email": "ivan@gmail.com",
-    "password": "Qwerty1$"
+    "email": "test.testerson@gmail.com",
+    "password": "test1234"
 }
 
 ### Sign out
