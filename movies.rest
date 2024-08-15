@@ -1,0 +1,49 @@
+GET http://localhost:3000/movies
+
+###
+
+POST http://localhost:3000/movies
+Content-Type: application/json
+ 
+{
+  "title": "The Godfather",
+  "year": 1971,
+  "genres": "drama, crime",
+  "rating": 10.0,
+  "text": "A landmark of cinema",
+  "author": "Borche",
+  "likeCount": 523,
+  "director": "Francis Ford Copolla"
+}
+
+###
+
+POST http://localhost:3000/movies
+Content-Type: application/json
+ 
+{
+  "title": "The Matrix",
+  "year": 1971,
+  "genres": "sci-fi, action",
+  "rating": 9.0,
+  "text": "One of the best sci-fi epics of the 20th century",
+  "author": "Borche",
+  "likeCount": 523,
+  "director": "The Wachowskis"
+}
+
+###
+
+POST http://localhost:3000/movies
+Content-Type: application/json
+ 
+{
+  "title": "Pulp Fiction",
+  "year": 1994,
+  "genres": "crime, drama",
+  "rating": 9.5,
+  "text": "Tarantion's best work by far",
+  "author": "John",
+  "likeCount": 321,
+  "director": "Quentin Tarantino"
+}
