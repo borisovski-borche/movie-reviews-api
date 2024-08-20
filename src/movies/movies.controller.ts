@@ -30,6 +30,11 @@ export class MoviesController {
     return await this.moviesService.createNewMovie(body);
   }
 
+  @Post('/many')
+  async createManyMovies(@Body() body: CreateMovieDto[]) {
+    return await this.moviesService.createMultipleMovies(body);
+  }
+
   @Patch('/:id')
   updateMovie(@Param('id') id: string, @Body() body: UpdateMovieDto) {
     return this.moviesService.updateMovie(parseInt(id), body);

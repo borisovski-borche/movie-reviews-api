@@ -17,15 +17,23 @@ export class MoviesService {
         id: movieId,
       },
     });
+
     if (!foundMovie) {
       throw new NotFoundException('Movie not found!');
     }
+
     return foundMovie;
   }
 
   createNewMovie(movieDto: CreateMovieDto) {
     const newMovie = this.repo.create(movieDto);
     return this.repo.save(newMovie);
+  }
+
+  createMultipleMovies(movies: CreateMovieDto[]) {
+    const movieEntities = this.repo.create(movies);
+
+    return this.repo.save(movieEntities);
   }
 
   async updateMovie(movieId: number, attrs: Partial<Movie>) {
