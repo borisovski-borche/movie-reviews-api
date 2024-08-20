@@ -7,8 +7,15 @@ import { Movie } from './movie.entity';
 @Injectable()
 export class MoviesService {
   constructor(@InjectRepository(Movie) private repo: Repository<Movie>) {}
-  getAllMovies() {
-    return this.repo.find();
+
+  getAllMovies(orderBy?: string) {
+    if (orderBy)
+      return this.repo.find({
+        order: {
+          [orderBy]: 'DESC',
+        },
+      });
+    else return this.repo.find();
   }
 
   getMovieById(movieId: number) {

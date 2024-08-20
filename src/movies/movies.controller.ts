@@ -6,6 +6,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 import { CreateMovieDto } from './create-movie.dto';
 import { MoviesService } from './movies.service';
@@ -16,8 +17,8 @@ export class MoviesController {
   constructor(private moviesService: MoviesService) {}
 
   @Get('/')
-  getAllMovies() {
-    return this.moviesService.getAllMovies();
+  getAllMovies(@Query('orderBy') orderBy: string) {
+    return this.moviesService.getAllMovies(orderBy);
   }
 
   @Get('/:id')
