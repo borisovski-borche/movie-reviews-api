@@ -1,5 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
+//Random comment
+
 @Entity()
 export class Movie {
   @PrimaryGeneratedColumn()
